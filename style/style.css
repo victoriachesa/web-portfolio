@@ -1,3 +1,13 @@
+/* Variables de diseño */
+:root {
+    --primary-color: #333333;
+    --secondary-color: #ff6f61;
+    --background-color: #f9f9f9;
+    --font-title: 'Clash Display', sans-serif;
+    --font-paragraph: 'General Sans', sans-serif;
+
+}
+
 /* Reset básico */
 * {
     margin: 0;
@@ -5,11 +15,18 @@
     box-sizing: border-box;
 }
 
-/* Body y tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+}
+
+body, p, li, span, a {
+    font-family: var(--font-paragraph);
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    background-color: #f9f9f9;
+    font-family: var(--font-main);
+    color: var(--primary-color);
+    background-color: var(--background-color);
 }
 
 /* Header */
@@ -18,27 +35,33 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--background-color);
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
 header .logo {
+    font-family: var(--font-heading);
+    font-size: 28px;
     font-weight: bold;
-    font-size: 24px;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 header nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: var(--primary-color);
     font-weight: 500;
+    transition: 0.3s;
+}
+
+header nav ul li a:hover {
+    color: var(--secondary-color);
 }
 
 /* Sección Home */
@@ -47,28 +70,38 @@ header nav ul li a {
     justify-content: space-between;
     align-items: center;
     padding: 100px 50px;
+    min-height: 90vh;
 }
 
 .home-text h1 {
-    font-size: 48px;
+    font-family: var(--font-heading);
+    font-size: 4rem;
     margin-bottom: 20px;
 }
 
 .home-text p {
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-bottom: 30px;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
+    padding: 12px 30px;
+    background-color: var(--secondary-color);
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
+.btn:hover {
+    background-color: #ff8b75;
+}
+
+/* Imagen Home */
 .home-image img {
     max-width: 400px;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
