@@ -3,35 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Victoria Chesa · Portfolio</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500&f[]=general-sans@300,400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">MiNombre</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Graphic Design</a></li>
-                <li><a href="#">UX/UI</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- HEADER -->
+   <header class="header">
+  <div class="container">
+    <div class="logo">victoria.chesa.portfolio ✴</div>
 
-    <!-- Sección Home -->
-    <section class="home">
-        <div class="home-text">
-            <h1>Hola, soy [Tu Nombre]</h1>
-            <p>Diseñador gráfico y UX/UI</p>
-            <a href="#projects" class="btn">Ver mis proyectos</a>
+    <nav class="nav">
+      <ul>
+        <li><a href="uxui.html">UX/UI</a></li>
+        <li><a href="graphicdesign.html">Graphic Design</a></li>
+        <li><a href="#">More About Me</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <!-- MAIN -->
+    <main>
+        <section id="projects" class="projects">
+            <div class="project">
+                <img src="img/proyecto1.jpg" alt="Proyecto 1">
+                <h3>App Banca - Kutxabank</h3>
+                <p>2023–24</p>
+            </div>
+
+            <div class="project">
+                <img src="img/proyecto2.jpg" alt="Proyecto 2">
+                <h3>Rediseño Sede electrónica - Seguridad Social</h3>
+                <p>2025</p>
+            </div>
+
+            <div class="project">
+                <img src="img/proyecto3.jpg" alt="Proyecto 3">
+                <h3>App Sanidad Canarias - Mi SCS</h3>
+                <p>2024</p>
+            </div>
+
+            <!-- Puedes seguir añadiendo más proyectos -->
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">LINKEDIN ↗</a>
+            <a href="#">BEHANCE ↗</a>
+            <a href="mailto:tucorreo@email.com">MAIL ↗</a>
+            <a href="#">CV ↗</a>
         </div>
-        <!-- Aquí podrías añadir una foto o imagen de proyectos -->
-        <div class="home-image">
-            <!-- <img src="ruta-de-tu-imagen.jpg" alt="Mi foto"> -->
-        </div>
-    </section>
+        <p>© 2025 Victoria Chesa — Designed & Developed with care</p>
+    </footer>
 
 </body>
 </html>
