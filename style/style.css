@@ -1,12 +1,64 @@
 /* Variables de diseño */
 :root {
-    --primary-color: #333333;
-    --secondary-color: #ff6f61;
-    --background-color: #f9f9f9;
-    font-display: 'Clash Display', sans-serif;
-    font-family: 'General Sans', sans-serif;
+  /* Tipografías */
+  --font-title: 'Clash Display', sans-serif;
+  --font-paragraph: 'General Sans', sans-serif;
 
+  /* COLORES */
+
+  /* Primary */
+  --color-primary-900: #23211F;
+  --color-primary-800: #55504C;
+  --color-primary-700: #857F79;
+  --color-primary-600: #B5AEA7;
+  --color-primary-500: #E4DDD6;
+  --color-primary-400: #EFE9E2;
+  --color-primary-300: #F4EEE9;
+  --color-primary-200: #F8F4F0;
+  --color-primary-100: #FEFDFB;
+
+  /* Secondary */
+  --color-secondary-900: #000026;
+  --color-secondary-800: #00005C;
+  --color-secondary-700: #010093;
+  --color-secondary-600: #1100C9;
+  --color-secondary-500: #2AA0F6;
+  --color-secondary-400: #5D57FF;
+  --color-secondary-300: #8282FF;
+  --color-secondary-200: #ADADFF;
+  --color-secondary-100: #D9D9FF;
+
+  /* Tertiary */
+  --color-tertiary-900: #260019;
+  --color-tertiary-800: #5C003C;
+  --color-tertiary-700: #93035E;
+  --color-tertiary-600: #C91780;
+  --color-tertiary-500: #FB36A0;
+  --color-tertiary-400: #FF60C2;
+  --color-tertiary-300: #FF82D3;
+  --color-tertiary-200: #FFADE3;
+  --color-tertiary-100: #FFD9F2;
+
+  /* Tamaños de texto */
+  --title-48: 3rem;
+  --title-40: 2.5rem;
+  --title-32: 2rem;
+  --title-24: 1.5rem;
+  --title-16: 1rem;
+
+  --display-48: 3rem;
+  --display-40: 2.5rem;
+  --display-32: 2rem;
+  --display-24: 1.5rem;
+  --display-16: 1rem;
+
+  --paragraph-20: 1.25rem;
+  --paragraph-16: 1rem;
+  --paragraph-14: 0.875rem;
+  --paragraph-12: 0.75rem;
+  --paragraph-10: 0.625rem;
 }
+
 
 /* Reset básico */
 * {
@@ -17,7 +69,7 @@
 
 body {
   font-family: "General Sans", sans-serif;
-  background-color: #fff;
+  background-color: var(--color-primary-100);
   color: #111;
   padding: 2rem;
 }
@@ -26,120 +78,157 @@ body {
 body {
   margin: 0;
   font-family: "General Sans", sans-serif; /* cámbialo por la que tengas de Fontshare */
-  background-color: #fdfbff; /* fondo general */
+  background-color: var(--color-primary-100);
   color: #111;
 }
 
-/* Header principal */
-.header {
-  background-color: #fff;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-/* Contenedor interno con márgenes laterales */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+/* === HEADER === */
+header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* logo izquierda, menú derecha */
   align-items: center;
+  padding: 64px 40px; /* margen top/bottom = 64px, laterales = 40px */
+  width: 100%;
+  box-sizing: border-box; /* evita que el padding rompa el layout */
 }
 
-/* Logo */
+/* === LOGO === */
 .logo {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #f28fd9; /* rosa pastel del ejemplo */
-  letter-spacing: 0.5px;
+  font-family: var(--font-paragraph);
+  font-size: var(--paragraph-20);
+  color: var(--color-tertiary-400);
 }
 
-/* Navegación */
-.nav ul {
+/* === NAVIGATION === */
+nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 32px; /* espaciado horizontal */
   margin: 0;
   padding: 0;
 }
 
-.nav a {
+nav a {
+  font-family: var(--font-title);
+  font-size: var(--title-24);
+  color: var(--color-primary-600);
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
-.nav a:hover {
-  color: #f28fd9; /* efecto hover rosa */
+nav a:hover {
+  color: var(--color-primary-800);
 }
 
-/* ======== Responsive ======== */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
+nav a.active {
+  color: var(--color-primary-800);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* === RESPONSIVE (<550px) === */
+@media (max-width: 550px) {
+  header {
+    flex-direction: column; /* apila logo arriba y menú abajo */
+    align-items: center;
+    padding: 40px 20px;
   }
 
-  .nav ul {
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    overflow-x: auto; /* 🔹 scroll horizontal */
+    gap: 24px;
+    padding-bottom: 8px;
+    scrollbar-width: none; /* oculta barra en Firefox */
+  }
+
+  nav ul::-webkit-scrollbar {
+    display: none; /* oculta barra en Chrome/Safari */
   }
 }
+
 
 /* ---------- PROYECTOS ---------- */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+  gap: 32px;
+  justify-content: center; /* centra los cuadrados si no llenan toda la fila */
   margin-bottom: 6rem;
 }
 
-.project img {
-  width: 100%;
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.img-container {
+  width: 550px;
+  height: 550px;           /* cuadrado fijo */
+  overflow: hidden;         /* recorta lo que sobresalga */
   border-radius: 0.5rem;
-  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* llena todo el contenedor sin deformarse */
+  object-position: center;  /* centra la imagen dentro del cuadrado */
+  transition: transform 0.5s ease; /* transición suave para zoom */
+}
+
+.img-container:hover img {
+  transform: scale(1.1);    /* zoom al pasar el cursor */
 }
 
 .project h3 {
-  font-size: 1rem;
-  margin-bottom: 0.2rem;
-  font-weight: 500;
+  margin-top: 0.8rem;
+  font-size: var(--display-16);
+  text-align: left;
+  width: 100%;
 }
 
 .project p {
-  font-size: 0.9rem;
-  color: #777;
+  margin-top: 0.3rem;
+  color: var(--color-primary-800);
+  font-size: 0.95rem;
+  text-align: left;
+  width: 100%;
 }
+
 
 /* ---------- FOOTER ---------- */
 footer {
   text-align: center;
-  background-color: #ffd9eb;
-  padding: 1.5rem;
+  background-color: var(--color-tertiary-100);
+  padding: 2rem;
   border-radius: 0.5rem;
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 4rem;
   margin-bottom: 0.5rem;
 }
 
 .footer-links a {
   text-decoration: none;
-  color: #111;
-  font-size: 0.9rem;
+  color:var(--color-primary-800);
+  font-family: var(--font-title);
+  font-size: var(--title-24);
   text-transform: uppercase;
 }
 
 footer p {
-  font-size: 0.8rem;
-  color: #666;
+  color:var(--color-primary-800);
+  font-family: var(--font-paragraph);
+  font-size: var(--paragraph-14);
 }
