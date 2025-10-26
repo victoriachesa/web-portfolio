@@ -46,12 +46,6 @@
   --title-24: 1.5rem;
   --title-16: 1rem;
 
-  --display-48: 3rem;
-  --display-40: 2.5rem;
-  --display-32: 2rem;
-  --display-24: 1.5rem;
-  --display-16: 1rem;
-
   --paragraph-20: 1.25rem;
   --paragraph-16: 1rem;
   --paragraph-14: 0.875rem;
@@ -70,7 +64,7 @@
 body {
   font-family: "General Sans", sans-serif;
   background-color: var(--color-primary-100);
-  color: #111;
+  color: var(--color-primary-900);
   padding: 2rem;
 }
 
@@ -79,7 +73,7 @@ body {
   margin: 0;
   font-family: "General Sans", sans-serif; /* cámbialo por la que tengas de Fontshare */
   background-color: var(--color-primary-100);
-  color: #111;
+  color: var(--color-primary-900)
 }
 
 /* === HEADER === */
@@ -87,7 +81,7 @@ header {
   display: flex;
   justify-content: space-between; /* logo izquierda, menú derecha */
   align-items: center;
-  padding: 64px 40px; /* margen top/bottom = 64px, laterales = 40px */
+  padding: 32px 64px; /* margen top/bottom = 32px, laterales = 64px */
   width: 100%;
   box-sizing: border-box; /* evita que el padding rompa el layout */
 }
@@ -110,7 +104,7 @@ nav ul {
 
 nav a {
   font-family: var(--font-title);
-  font-size: var(--title-24);
+  font-size: var(--title-16);
   color: var(--color-primary-600);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
@@ -152,57 +146,177 @@ nav a.active {
   }
 }
 
+/* Intro general */
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* texto alineado a la izquierda */
+  padding: 120px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
 
-/* ---------- PROYECTOS ---------- */
+
+/* Contenedor de icono + texto */
+.intro__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 80px; /* separa del borde izquierdo */
+  max-width: 700px;
+}
+
+.intro__icon img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 48px;
+}
+
+.intro__text h1 {
+  font-family: var(--font-title);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--color-secondary-900);
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.highlight {
+  color: var(--color-secondary-600); /* o el color que quieras destacar */
+  font-weight: 500; /* puedes ajustarlo, por ejemplo 500 si quieres un pelín más fuerte */
+}
+
+/* Botón centrado */
+.intro__button {
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Botón circular con borde */
+.scroll-btn {
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--color-primary-900);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-primary-900);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background: var(--color-primary-300);
+  transform: translateY(3px);
+}
+
+.intro__button span {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-secondary-900);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ======== PROYECTOS ======== */
 .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
-  gap: 32px;
-  justify-content: center; /* centra los cuadrados si no llenan toda la fila */
-  margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 88px; /* separación entre cards */
+  max-width: 900px;
+  margin: 0 auto 200px auto;
+  padding: 0 24px;
+  margin-top: 120px;
 }
 
 .project {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.img-container {
-  width: 550px;
-  height: 550px;           /* cuadrado fijo */
-  overflow: hidden;         /* recorta lo que sobresalga */
-  border-radius: 0.5rem;
-  position: relative;
+  flex-direction: row;
+  align-items: left;
+  gap: 48px;
 }
 
 .img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* llena todo el contenedor sin deformarse */
-  object-position: center;  /* centra la imagen dentro del cuadrado */
-  transition: transform 0.5s ease; /* transición suave para zoom */
+  width: 420px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  margin-bottom: 32px;
 }
 
-.img-container:hover img {
-  transform: scale(1.1);    /* zoom al pasar el cursor */
+/* ======== INFO DE CADA PROYECTO ======== */
+.project__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
 }
 
-.project h3 {
-  margin-top: 0.8rem;
-  font-size: var(--display-16);
-  text-align: left;
-  width: 100%;
+.tag {
+  font-size: 16px;
+  background-color:var(--color-primary-300); /* primary-300 */
+  color: var(--color-primary-900); /* primary-900 */
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
 }
 
-.project p {
-  margin-top: 0.3rem;
-  color: var(--color-primary-800);
-  font-size: 0.95rem;
-  text-align: left;
-  width: 100%;
+.project__date {
+  margin-top: 8px;
+  font-size: var(--paragraph-12);
+  color: var(--color-primary-700);
 }
 
+.project__title {
+  font-size: var(--title-16);
+  color: var(--color-secondary-900);
+}
+
+.project__desc {
+  font-size: var(--paragraph-16);
+  color: var(--color-secondary-900); /* secondary-900 */
+  line-height: 1.6;
+}
+
+/* Para invertir el orden: imagen derecha, texto izquierda */
+.project.reverse {
+  flex-direction: row-reverse;
+}
+
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .intro {
+    margin: 80px auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .projects {
+    gap: 64px;
+  }
+
+  .img-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .project__info {
+    max-width: 100%;
+  }
+}
 
 /* ---------- FOOTER ---------- */
 footer {
