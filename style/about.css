@@ -1,0 +1,32 @@
+/* about-me.css */
+/* Hereda style.css */
+
+/* Sección About */
+.about {
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 0 24px;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.about__container h1 {
+  font-family: var(--font-title);
+  font-size: var(--title-32);
+  margin-bottom: 24px;
+  color: var(--color-secondary-900);
+}
+
+.about__container p {
+  font-family: var(--font-paragraph);
+  font-size: var(--paragraph-16);
+  margin-bottom: 16px;
+  color: var(--color-primary-800);
+}
+
+/* Centrado en móvil */
+@media (max-width: 768px) {
+  .about {
+    text-align: center;
+  }
+}

@@ -1,0 +1,12 @@
+/* graphic-design.css */
+/* Hereda todo el style.css y se centra en adaptaciones gráficas */
+
+/* Por ejemplo, cambiar colores destacados en los proyectos de gráfico */
+.projects .project-card .project-tag {
+  background-color: var(--color-tertiary-200);
+  color: var(--color-tertiary-900);
+}
+
+.project-link:hover {
+  color: var(--color-tertiary-700);
+}

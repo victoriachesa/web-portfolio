@@ -70,10 +70,11 @@ body {
 
 /* ======== HEADER ======== */
 body {
-  margin: 0;
-  font-family: "General Sans", sans-serif; /* cámbialo por la que tengas de Fontshare */
-  background-color: var(--color-primary-100);
-  color: var(--color-primary-900)
+    margin: 0;
+    font-family: var(--font-paragraph);
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-900);
+    padding: 2rem;
 }
 
 /* === HEADER === */
@@ -217,12 +218,12 @@ nav a.active {
 }
 
 .scroll-btn:hover {
-  background: var(--color-tertiary-100);
-  transform: translateY(3px);
+    background: var(--color-tertiary-100);
+    transform: translateY(-2px);
 }
 
 .intro__button span {
-  font-family: var(--font-body);
+  font-family: var(--font-paragraph);
   font-size: 16px;
   color: var(--color-secondary-900);
   text-transform: uppercase;
@@ -317,6 +318,20 @@ nav a.active {
   transform: translateX(4px);
 }
 
+/* Invertir proyecto en desktop */
+.project.reverse {
+  flex-direction: row-reverse; /* imagen a la derecha, texto a la izquierda */
+  text-align: right;
+}
+
+/* En móvil se mantiene columna, para que todo se vea bien */
+@media (max-width: 768px) {
+  .project.reverse {
+    flex-direction: column;
+    text-align: center; /* centrar texto en móvil */
+  }
+}
+
 
 /* ======== RESPONSIVE ======== */
 @media (max-width: 768px) {
@@ -367,4 +382,46 @@ footer p {
   color:var(--color-primary-800);
   font-family: var(--font-paragraph);
   font-size: var(--paragraph-14);
+}
+
+/* ===== Proyecto individual ===== */
+.project-detail {
+  max-width: 1200px;
+  margin: 120px auto;
+  padding: 0 24px;
+}
+
+.project-detail h1 {
+  font-family: var(--font-title);
+  font-size: var(--title-40);
+  margin-bottom: 16px;
+  color: var(--color-secondary-900);
+}
+
+.project-detail .project-meta {
+  font-family: var(--font-paragraph);
+  font-size: var(--paragraph-16);
+  color: var(--color-primary-700);
+  margin-bottom: 48px;
+}
+
+.project-detail .project-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.project-detail .project-description h2 {
+  font-family: var(--font-title);
+  font-size: var(--title-32);
+  margin-bottom: 16px;
+}
+
+.project-detail .project-description p {
+  font-family: var(--font-paragraph);
+  font-size: var(--paragraph-16);
+  line-height: 1.8;
+  color: var(--color-primary-800);
+  margin-bottom: 24px;
 }
