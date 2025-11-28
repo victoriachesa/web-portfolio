@@ -1,0 +1,170 @@
+/* ======== BASE ======== */
+.project-body {
+    background-color: #1f1f1f; /* fondo oscuro */
+    color: var(--color-primary-200);
+    padding: 0;
+}
+
+/* ======== HEADER ESPECÍFICO ======== */
+.project-header {
+  display: flex;
+  justify-content: space-between; /* logo izquierda, menú derecha */
+  align-items: center;
+  padding: 32px 64px; /* margen top/bottom = 32px, laterales = 64px */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project-logo {
+    color: var(--color-tertiary-300);
+    font-family: var(--font-paragraph);
+    font-size: var(--paragraph-20);
+}
+
+.project-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px; /* espaciado horizontal */
+  margin: 0;
+  padding: 0;
+}
+
+.project-nav a {
+  font-family: var(--font-title);
+  font-size: var(--title-16);
+  color: var(--color-primary-400);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.project-nav a:hover {
+    color: var(--color-tertiary-200);
+}
+
+
+nav a.active {
+  color: var(--color-primary-400);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* ======== BOTÓN VOLVER ======== */
+.back-container {
+    padding: 3rem 4rem;
+}
+
+.btn-back,
+.btn-pagination {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;                 /* separación flecha <-> texto */
+    padding: 12px 24px;
+    border-radius: 100px;      /* forma de pastilla */
+    background-color: #3a3a3a; /* como tu captura */
+    color: var(--color-primary-100);
+    text-decoration: none;
+    font-family: var(--font-paragraph);
+    font-size: 14px;           /* tal como pediste */
+    transition: 0.2s ease;
+}
+
+.btn-back:hover,
+.btn-pagination:hover {
+    background-color: #4a4a4a;
+}
+
+/* Flechas */
+.arrow-left,
+.arrow-right {
+    font-size: 18px;
+    line-height: 0;
+    display: block;
+}
+
+/* Posiciones específicas */
+.btn-back {
+    margin-left: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.project-pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 4rem;
+}
+
+
+/* ======== GALERÍA HORIZONTAL ======== */
+.project-gallery {
+    overflow-x: auto;
+    padding: 0 4rem;
+    margin-bottom: 4rem;
+}
+
+.gallery-scroll {
+    display: flex;
+    gap: 32px;
+}
+
+.gallery-scroll img {
+    width: 420px;
+    border-radius: 8px;
+}
+
+/* ======== CONTENIDO DEL PROYECTO ======== */
+.project-content {
+    max-width: 600px;
+    margin: 0 auto 5rem auto;
+    padding: 0 2rem;
+}
+
+.project-content h1 {
+ font-family: var(--font-title);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--color-primary-400);
+    margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.project-content p {
+    font-family: var(--font-paragraph-16);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary-200);
+  max-width: 90%;
+}
+
+/* ======== PREMIO ======== */
+.award-box {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.award-box img {
+    width: 50px;
+}
+
+/* ======== PAGINACIÓN ======== */
+.project-pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 6rem;
+}
+
+.project-pagination a {
+    background-color: #333;
+    padding: 12px 24px;
+    border-radius: 30px;
+    color: var(--color-primary-100);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.project-pagination a:hover {
+    background-color: #444;
+}
