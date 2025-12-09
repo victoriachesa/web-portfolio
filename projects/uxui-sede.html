@@ -39,14 +39,17 @@
 
 
 
-    <!-- GALERÍA HORIZONTAL -->
-    <section class="project-gallery">
-        <div class="gallery-scroll">
-            <img src="../assets/img/sedeold-uxui.jpg" alt="Sede diseño 1">
-            <img src="../assets/img/sedeold-uxui.jpg" alt="Sede diseño 2">
-            <img src="../assets/img/sedeold-uxui.jpg" alt="Sede diseño 3">
-        </div>
-    </section>
+<!-- GALERÍA HORIZONTAL -->
+<section class="project-gallery">
+  <div class="gallery-track">
+    <img class="gallery-img" src="../assets/img/SEDE-DESKTOP.png" alt="">
+    <img class="gallery-img" src="../assets/img/SEDE-MOCKUP.png" alt="">
+    <img class="gallery-img" src="../assets/img/SEDE-SEÑOR.png" alt="">
+    <img class="gallery-img" src="../assets/img/SEDE-MOVILES.png" alt="">
+  </div>
+</section>
+
+
 
 
     <!-- TEXTO DEL PROYECTO -->
@@ -104,6 +107,37 @@
     </a>
 </div>
 
+<script>
+const slider = document.querySelector('.project-gallery');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2; // velocidad de scroll
+  slider.scrollLeft = scrollLeft - walk;
+});
+</script>
 
 </body>
 </html>

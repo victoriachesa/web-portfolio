@@ -95,27 +95,62 @@ nav a.active {
 }
 
 
-/* ======== GALERÍA HORIZONTAL ======== */
+/* ======== GALERÍA TIPO FIGMA ======== */
 .project-gallery {
-    overflow-x: auto;
-    padding: 0 4rem;
-    margin-bottom: 4rem;
-}
-
-.gallery-scroll {
     display: flex;
-    gap: 32px;
+    justify-content: center; /* centra horizontal */
+    align-items: center;     /* centra vertical */
+    height: 480px;           /* altura del frame */
+    width: 100%;
+    overflow-x: auto;        /* scroll horizontal */
+    overflow-y: hidden;      
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background-color: #111;
+    cursor: grab;
 }
 
-.gallery-scroll img {
-    width: 420px;
-    border-radius: 8px;
+.project-gallery::-webkit-scrollbar {
+    display: none;
 }
+
+.gallery-track {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 0 64px; 
+}
+
+/* Ajuste clave: mostrar la imagen completa sin recortar */
+.gallery-img {
+    flex: 0 0 auto;      /* no se encoge ni crece automáticamente */
+    height: auto;         /* altura automática según proporción natural */
+    max-height: 100%;     /* que no sobrepase la altura del frame */
+    width: auto;          /* anchura proporcional */
+    object-fit: contain;  /* muestra la imagen completa */
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05); 
+}
+
+
+/* Scroll con el ratón (drag) */
+.project-gallery:active {
+    cursor: grabbing;
+}
+
+
+
 
 /* ======== CONTENIDO DEL PROYECTO ======== */
 .project-content {
     max-width: 600px;
     margin: 0 auto 5rem auto;
+    margin-top: 80px;
     padding: 0 2rem;
 }
 
