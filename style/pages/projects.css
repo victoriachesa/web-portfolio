@@ -96,19 +96,12 @@ nav a.active {
 
 
 /* ======== GALERÍA TIPO FIGMA ======== */
+/* ===== GALERÍA SIMPLE Y FUNCIONAL ===== */
 .project-gallery {
-    display: flex;
-    justify-content: center; /* centra horizontal */
-    align-items: center;     /* centra vertical */
-    height: 480px;           /* altura del frame */
     width: 100%;
-    overflow-x: auto;        /* scroll horizontal */
-    overflow-y: hidden;      
-    scroll-behavior: smooth;
+    overflow-x: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
-    -ms-overflow-style: none;
-    background-color: #111;
-    cursor: grab;
 }
 
 .project-gallery::-webkit-scrollbar {
@@ -117,24 +110,18 @@ nav a.active {
 
 .gallery-track {
     display: flex;
-    align-items: center;
     gap: 32px;
-    padding: 0 64px; 
+    padding: 0 64px;
 }
 
-/* Ajuste clave: mostrar la imagen completa sin recortar */
+/* IMÁGENES SIN RECORTE */
 .gallery-img {
-    flex: 0 0 auto;      /* no se encoge ni crece automáticamente */
-    height: auto;         /* altura automática según proporción natural */
-    max-height: 100%;     /* que no sobrepase la altura del frame */
-    width: auto;          /* anchura proporcional */
-    object-fit: contain;  /* muestra la imagen completa */
+    flex: 0 0 auto;
+    max-height: 420px;   /* controla el tamaño aquí */
+    width: auto;
+    height: auto;
+    object-fit: contain;
     border-radius: 12px;
-    transition: transform 0.3s;
-}
-
-.gallery-img:hover {
-    transform: scale(1.05); 
 }
 
 
@@ -142,8 +129,6 @@ nav a.active {
 .project-gallery:active {
     cursor: grabbing;
 }
-
-
 
 
 /* ======== CONTENIDO DEL PROYECTO ======== */
